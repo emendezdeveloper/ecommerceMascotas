@@ -7,6 +7,7 @@
         v-for="producto in productos"
         :key="producto.id"
       >
+        <img :src="producto.imagen" :alt="producto.nombre" class="producto-img" />
         <h3>{{ producto.nombre }}</h3>
         <p>{{ producto.descripcion }}</p>
         <p><strong>Precio:</strong> ${{ producto.precio }}</p>
@@ -25,18 +26,21 @@ const productos = ref([
     nombre: 'Concentrado para perro - Adulto',
     descripcion: 'Saco de 10kg con nutrientes para perros adultos.',
     precio: 90000,
+    imagen: 'https://images.unsplash.com/photo-1518717758536-85ae29035b6d?auto=format&fit=crop&w=400&q=80'
   },
   {
     id: 2,
     nombre: 'Vitaminas para gatos',
     descripcion: 'Frasco con 30 tabletas de suplemento vitamínico.',
     precio: 35000,
+    imagen: 'https://images.unsplash.com/photo-1508672019048-805c876b67e2?auto=format&fit=crop&w=400&q=80'
   },
   {
     id: 3,
     nombre: 'Antipulgas en spray',
     descripcion: 'Producto dermatológicamente probado, seguro para cachorros.',
     precio: 42000,
+    imagen: 'https://images.unsplash.com/photo-1508672019048-805c876b67e2?auto=format&fit=crop&w=400&q=80'
   },
 ])
 // Importamos el store de carrito
@@ -56,6 +60,13 @@ const agregarAlCarrito = (producto) => {
   background: #e3f0ff;
   min-height: 100vh;
   padding: 2rem;
+}
+.producto-img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 1rem;
 }
 
 h1 {
