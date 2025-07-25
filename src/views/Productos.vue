@@ -26,21 +26,28 @@ const productos = ref([
     nombre: 'Concentrado para perro - Adulto',
     descripcion: 'Saco de 10kg con nutrientes para perros adultos.',
     precio: 90000,
-    imagen: 'https://images.unsplash.com/photo-1518717758536-85ae29035b6d?auto=format&fit=crop&w=400&q=80'
+    imagen: 'https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&w=400&h=400&fit=crop' // perro con fondo blanco
   },
   {
     id: 2,
     nombre: 'Vitaminas para gatos',
     descripcion: 'Frasco con 30 tabletas de suplemento vitamínico.',
     precio: 35000,
-    imagen: 'https://images.unsplash.com/photo-1508672019048-805c876b67e2?auto=format&fit=crop&w=400&q=80'
+    imagen: 'https://images.pexels.com/photos/452046/pexels-photo-452046.jpeg?auto=compress&w=400&h=400&fit=crop' // gato con fondo blanco
   },
   {
     id: 3,
     nombre: 'Antipulgas en spray',
     descripcion: 'Producto dermatológicamente probado, seguro para cachorros.',
     precio: 42000,
-    imagen: 'https://images.unsplash.com/photo-1508672019048-805c876b67e2?auto=format&fit=crop&w=400&q=80'
+    imagen: 'https://images.pexels.com/photos/4587971/pexels-photo-4587971.jpeg?auto=compress&w=400&h=400&fit=crop' // producto con fondo blanco
+  },
+  {
+    id: 4,
+    nombre: 'Antipulgas en spray',
+    descripcion: 'Producto dermatológicamente probado, seguro para cachorros.',
+    precio: 42000,
+    imagen: 'https://images.pexels.com/photos/4587971/pexels-photo-4587971.jpeg?auto=compress&w=400&h=400&fit=crop' // producto con fondo blanco
   },
 ])
 // Importamos el store de carrito
@@ -62,11 +69,14 @@ const agregarAlCarrito = (producto) => {
   padding: 2rem;
 }
 .producto-img {
-  width: 100%;
-  height: 160px;
-  object-fit: cover;
-  border-radius: 6px;
+  width: 180px;
+  height: 180px;
+  object-fit: contain;
+  border-radius: 12px;
   margin-bottom: 1rem;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  display: block;
 }
 
 h1 {
@@ -78,20 +88,28 @@ h1 {
 
 .productos-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
   margin-top: 1rem;
+  justify-items: center;      /* Centra cada tarjeta en su columna */
+  align-items: start;         /* Opcional: alinea arriba las tarjetas */
+  width: 100%;
+  max-width: 1100px;          /* Opcional: limita el ancho total del grid */
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .producto-card {
   background: white;
-  border-radius: 8px;
+  border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
   padding: 2rem 1.5rem;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  min-height: 260px;
+  align-items: center;
+  min-height: 350px;
+  max-width: 300px;            /* Más delgada */
+  margin: 0 auto;
 }
 
 .producto-card h3 {

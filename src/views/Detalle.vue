@@ -1,5 +1,6 @@
 <template>
   <div class="detalle-page" v-if="item">
+    <img v-if="item.imagen" :src="item.imagen" :alt="item.nombre" class="detalle-img" />
     <h1>{{ item.nombre }}</h1>
     <p><strong>Descripción:</strong> {{ item.descripcion }}</p>
     <p><strong>Precio:</strong> ${{ item.precio }}</p>
@@ -20,15 +21,27 @@ const route = useRoute()
 const carrito = useCarritoStore()
 
 const productos = [
-  { id: 1, nombre: 'Concentrado para perro - Adulto', descripcion: 'Saco de 10kg con nutrientes para perros adultos.', precio: 90000 },
-  { id: 2, nombre: 'Vitaminas para gatos', descripcion: 'Frasco con 30 tabletas de suplemento vitamínico.', precio: 35000 },
-  { id: 3, nombre: 'Antipulgas en spray', descripcion: 'Producto dermatológicamente probado, seguro para cachorros.', precio: 42000 },
-]
-
-const servicios = [
-  { id: 1, nombre: 'Baño para perro', descripcion: 'Incluye shampoo especial, secado y cepillado.', precio: 25000 },
-  { id: 2, nombre: 'Corte de pelo', descripcion: 'Estilo a tu gusto, con tijeras o máquina.', precio: 30000 },
-  { id: 3, nombre: 'Paseo de 1 hora', descripcion: 'Paseo con cuidador certificado y agua incluida.', precio: 15000 },
+  { 
+    id: 1, 
+    nombre: 'Concentrado para perro - Adulto', 
+    descripcion: 'Saco de 10kg con nutrientes para perros adultos.', 
+    precio: 90000,
+    imagen: 'https://images.unsplash.com/photo-1518717758536-85ae29035b6d?auto=format&fit=crop&w=400&q=80'
+  },
+  { 
+    id: 2, 
+    nombre: 'Vitaminas para gatos', 
+    descripcion: 'Frasco con 30 tabletas de suplemento vitamínico.', 
+    precio: 35000,
+    imagen: 'https://images.unsplash.com/photo-1508672019048-805c876b67e2?auto=format&fit=crop&w=400&q=80'
+  },
+  { 
+    id: 3, 
+    nombre: 'Antipulgas en spray', 
+    descripcion: 'Producto dermatológicamente probado, seguro para cachorros.', 
+    precio: 42000,
+    imagen: 'https://images.unsplash.com/photo-1508672019048-805c876b67e2?auto=format&fit=crop&w=400&q=80'
+  },
 ]
 
 // Obtener el item según el tipo y el ID
@@ -52,6 +65,15 @@ const agregarAlCarrito = () => {
 </script>
 
 <style scoped>
+.detalle-img {
+  width: 100%;
+  max-width: 350px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  display: block;
+}
 .detalle-page {
   padding: 2rem;
   background-color: #fafafa;
