@@ -13,3 +13,5 @@ import CarritoPanel from './components/CarritoPanel.vue'
 
 const mostrarCarrito = ref(false)
 </script>
+
+<scoped></scoped>

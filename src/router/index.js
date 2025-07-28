@@ -6,6 +6,7 @@ import Detalle from '../views/Detalle.vue';
 import Login from '../views/Login.vue';
 import Panel from '../views/PanelUsuario.vue';
 import Productos from '../views/Productos.vue';
+import ProductosTest from '../views/ProductosTest.vue';
 import Registro from '../views/Registro.vue';
 import Servicios from '../views/Servicios.vue';
 import P2P from '../views/P2P.vue';
@@ -42,6 +43,11 @@ const routes = [
         "path": "/productos",
         "name": "productos",
         "component": Productos,
+    },
+    {
+        "path": "/productosTest",
+        "name": "productosTest",
+        "component": ProductosTest,
     },
     {
         "path": "/registro",

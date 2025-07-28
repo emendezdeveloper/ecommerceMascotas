@@ -1,62 +1,83 @@
 <template>
   <div>
-     <!-- Header superior -->
-    <header class="main-header">
-      <div class="header-top">
-        <div class="header-icons">
+    <!-- Header superior -->
+    <header class="bg-blue-500 pb-2 shadow-md fixed top-0 left-0 w-full z-50">
+      <!-- Top info -->
+      <div class="flex justify-between items-center text-base px-8 py-2 text-blue-50">
+        <div class="flex gap-8">
           <span>Compras seguras online</span>
           <span>Pago contra entrega</span>
           <span>Entregas el mismo día</span>
         </div>
-        <div class="header-social">
-          <span>Llámamos 3147514973</span>
-          <span>📷</span>
-          <span>📘</span>
-          <span>▶️</span>
+        <div class="flex gap-4 items-center">
+          <span class="hidden sm:inline">Llámanos 3147514973</span>
+          <span class="text-xl cursor-pointer">📷</span>
+          <span class="text-xl cursor-pointer">📘</span>
+          <span class="text-xl cursor-pointer">▶️</span>
         </div>
       </div>
-      <div class="header-search">
-        <span>🐶</span>
-        <input type="text" placeholder="¿Qué necesita tu mascota?" />
-        <button >Buscar</button>
-        <button class="cart-btn" @click="emit('abrirCarrito')">
-  🛒 
-  <span class="cart-count" v-if="totalUnidades > 0">{{ totalUnidades }}</span>
-</button>
+      <!-- Buscador y carrito -->
+      <div class="flex items-center gap-2 px-8 py-2">
+        <span class="text-2xl">🐶</span>
+        <input
+          type="text"
+          placeholder="¿Qué necesita tu mascota?"
+          class="w-[350px] px-4 py-2 rounded-lg border border-blue-200 text-base"
+        />
+        <button class="bg-blue-900 text-white rounded-lg font-bold px-6 py-2 text-base shadow hover:bg-blue-400 transition ml-2">
+          Buscar
+        </button>
+        <div class="flex-1"></div>
+        <button
+          class="relative text-2xl text-blue-900 hover:text-blue-700 transition"
+          @click="emit('abrirCarrito')"
+        >
+          <span class="sr-only">Carrito</span>
+          <span>🛒</span>
+          <span
+            v-if="totalUnidades > 0"
+            class="absolute -top-2 -right-3 bg-red-500 text-white rounded-full text-xs px-2 font-bold"
+            >{{ totalUnidades }}</span
+          >
+        </button>
       </div>
-      
-      <nav class="main-menu">
-        <a><router-link to="/">Inicio</router-link></a>
-        <a href="#">Perro 🐶</a>
-        <a href="#">Gato 🐱</a>
-        <a><router-link to="/servicios">Servicios</router-link></a>
-        <a><router-link to="/productos">Productos</router-link></a>
-        <a href="#">Promociones</a>
-        <a href="#">Blog</a>
-        <button class="member-btn">Miembro</button>
+      <!-- Menú principal -->
+      <nav class="flex justify-center gap-8 bg-blue-100 py-3 text-lg font-bold shadow">
+        <router-link to="/" class="text-blue-900 hover:text-blue-700 hover:bg-blue-200 rounded px-4 py-2 transition">Inicio</router-link>
+        <a href="#" class="text-blue-900 hover:text-blue-700 hover:bg-blue-200 rounded px-4 py-2 transition">Perro 🐶</a>
+        <a href="#" class="text-blue-900 hover:text-blue-700 hover:bg-blue-200 rounded px-4 py-2 transition">Gato 🐱</a>
+        <router-link to="/servicios" class="text-blue-900 hover:text-blue-700 hover:bg-blue-200 rounded px-4 py-2 transition">Servicios</router-link>
+        <router-link to="/productos" class="text-blue-900 hover:text-blue-700 hover:bg-blue-200 rounded px-4 py-2 transition">Productos</router-link>
+        <a href="#" class="text-blue-900 hover:text-blue-700 hover:bg-blue-200 rounded px-4 py-2 transition">Promociones</a>
+        <a href="#" class="text-blue-900 hover:text-blue-700 hover:bg-blue-200 rounded px-4 py-2 transition">Blog</a>
+        <button class="bg-blue-200 text-blue-900 rounded px-4 py-2 ml-4 font-bold hover:bg-blue-300 transition">Miembro</button>
       </nav>
     </header>
-    <section class="main-banner">
-  <img src="/banner.png" alt="Banner Mascotas" />
-    </section>
-     <!-- Filtros y selección -->
-    <section class="main-filters">
-      <div>
-        <span>Estás comprando para:</span>
-        <button class="filter-btn active">Perros 🐶</button>
-        <button class="filter-btn">Gatos 🐱</button>
-      </div>
-      <div class="filters-row">
-        <button>Alimento</button>
-        <button>Concentrado</button>
-        <button>Seleccione una marca</button>
-        <button>Limpiar</button>
-        <button>Filtrar Por ▼</button>
-        <button>Ordenar Por ▼</button>
-      </div>
-    </section>
-  </div>
 
+    <!-- ESPACIO PARA HEADER FIJO -->
+    <div class="pt-[170px]">
+      <!-- Banner -->
+      <section class="flex justify-center items-center w-full min-h-[180px] bg-white">
+        <img src="/banner.png" alt="Banner Mascotas" class="w-full max-w-full h-auto object-cover rounded-none block" />
+      </section>
+      <!-- Filtros y selección -->
+      <section class="bg-blue-100 px-8 py-6 flex flex-col gap-4 items-start w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] box-border">
+        <div>
+          <span>Estás comprando para:</span>
+          <button class="bg-blue-900 text-white rounded px-4 py-2 font-bold mr-4">Perros 🐶</button>
+          <button class="bg-blue-500 text-white rounded px-4 py-2 font-bold">Gatos 🐱</button>
+        </div>
+        <div class="flex gap-4 mt-2 flex-wrap">
+          <button class="bg-white border border-blue-200 rounded px-4 py-2 text-blue-900 font-bold">Alimento</button>
+          <button class="bg-white border border-blue-200 rounded px-4 py-2 text-blue-900 font-bold">Concentrado</button>
+          <button class="bg-white border border-blue-200 rounded px-4 py-2 text-blue-900 font-bold">Seleccione una marca</button>
+          <button class="bg-white border border-blue-200 rounded px-4 py-2 text-blue-900 font-bold">Limpiar</button>
+          <button class="bg-white border border-blue-200 rounded px-4 py-2 text-blue-900 font-bold">Filtrar Por ▼</button>
+          <button class="bg-white border border-blue-200 rounded px-4 py-2 text-blue-900 font-bold">Ordenar Por ▼</button>
+        </div>
+      </section>
+    </div>
+  </div>
 </template>
 
 
@@ -75,7 +96,7 @@ const emit = defineEmits(['abrirCarrito'])
 
 </script>
 
-<style scoped>
+<!-- <style scoped>
 .main-header {
   background: #3b82f6; /* azul principal */
   padding-bottom: 0.5rem;
@@ -101,6 +122,10 @@ const emit = defineEmits(['abrirCarrito'])
   right: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
+}
+
+.main-banner {
+  margin-top: 138px; /* 90px + 48px, ajusta según tu diseño */
 }
 
 .main-banner img {
@@ -230,6 +255,13 @@ const emit = defineEmits(['abrirCarrito'])
   flex-direction: column;
   gap: 1rem;
   align-items: flex-start;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  box-sizing: border-box;
 }
 
 .filter-btn {
@@ -347,4 +379,4 @@ const emit = defineEmits(['abrirCarrito'])
     font-size: 0.95rem;
   }
 }
-</style>
+</style> -->
