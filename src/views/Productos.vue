@@ -1,5 +1,28 @@
 <template>
   <div class="bg-blue-100 min-h-screen w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] box-border py-8">
+    <!-- ESPACIO PARA HEADER FIJO -->
+    <div class="pt-[140px]">
+      <!-- Banner -->
+      <section class="flex justify-center items-center w-full min-h-[180px] bg-white">
+        <img src="/banner.png" alt="Banner Mascotas" class="w-full max-w-full h-auto object-cover rounded-none block" />
+      </section>
+      <!-- Filtros y selección -->
+      <section class="bg-blue-100 px-8 py-6 flex flex-col gap-4 items-start w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] box-border">
+        <div>
+          <span>Estás comprando para:</span>
+          <button class="bg-blue-900 text-white rounded px-4 py-2 font-bold mr-4">Perros 🐶</button>
+          <button class="bg-blue-500 text-white rounded px-4 py-2 font-bold">Gatos 🐱</button>
+        </div>
+        <div class="flex gap-4 mt-2 flex-wrap">
+          <button class="bg-white border border-blue-200 rounded px-4 py-2 text-blue-900 font-bold">Alimento</button>
+          <button class="bg-white border border-blue-200 rounded px-4 py-2 text-blue-900 font-bold">Concentrado</button>
+          <button class="bg-white border border-blue-200 rounded px-4 py-2 text-blue-900 font-bold">Seleccione una marca</button>
+          <button class="bg-white border border-blue-200 rounded px-4 py-2 text-blue-900 font-bold">Limpiar</button>
+          <button class="bg-white border border-blue-200 rounded px-4 py-2 text-blue-900 font-bold">Filtrar Por ▼</button>
+          <button class="bg-white border border-blue-200 rounded px-4 py-2 text-blue-900 font-bold">Ordenar Por ▼</button>
+        </div>
+      </section>
+    </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-screen max-w-full px-4 mx-auto">
       <div
         class="bg-white rounded-xl shadow flex flex-col items-center min-h-[480px] max-w-xs mx-auto p-6"

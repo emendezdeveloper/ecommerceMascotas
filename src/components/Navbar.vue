@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- Header superior -->
-    <header class="bg-blue-500 pb-2 shadow-md fixed top-0 left-0 w-full z-50">
+    <header class="bg-blue-700 pb-2 shadow-md fixed top-0 left-0 w-full z-50">
       <!-- Top info -->
       <div class="flex justify-between items-center text-base px-8 py-2 text-blue-50">
         <div class="flex gap-8">
@@ -54,29 +54,7 @@
       </nav>
     </header>
 
-    <!-- ESPACIO PARA HEADER FIJO -->
-    <div class="pt-[170px]">
-      <!-- Banner -->
-      <section class="flex justify-center items-center w-full min-h-[180px] bg-white">
-        <img src="/banner.png" alt="Banner Mascotas" class="w-full max-w-full h-auto object-cover rounded-none block" />
-      </section>
-      <!-- Filtros y selección -->
-      <section class="bg-blue-100 px-8 py-6 flex flex-col gap-4 items-start w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] box-border">
-        <div>
-          <span>Estás comprando para:</span>
-          <button class="bg-blue-900 text-white rounded px-4 py-2 font-bold mr-4">Perros 🐶</button>
-          <button class="bg-blue-500 text-white rounded px-4 py-2 font-bold">Gatos 🐱</button>
-        </div>
-        <div class="flex gap-4 mt-2 flex-wrap">
-          <button class="bg-white border border-blue-200 rounded px-4 py-2 text-blue-900 font-bold">Alimento</button>
-          <button class="bg-white border border-blue-200 rounded px-4 py-2 text-blue-900 font-bold">Concentrado</button>
-          <button class="bg-white border border-blue-200 rounded px-4 py-2 text-blue-900 font-bold">Seleccione una marca</button>
-          <button class="bg-white border border-blue-200 rounded px-4 py-2 text-blue-900 font-bold">Limpiar</button>
-          <button class="bg-white border border-blue-200 rounded px-4 py-2 text-blue-900 font-bold">Filtrar Por ▼</button>
-          <button class="bg-white border border-blue-200 rounded px-4 py-2 text-blue-900 font-bold">Ordenar Por ▼</button>
-        </div>
-      </section>
-    </div>
+    
   </div>
 </template>
 

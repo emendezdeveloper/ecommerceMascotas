@@ -1,7 +1,30 @@
 <template>
+  <!-- ESPACIO PARA HEADER FIJO -->
+    <div class="pt-[170px]">
+      <!-- Banner -->
+      <section class="flex justify-center items-center w-full min-h-[180px] bg-white">
+        <img src="/banner.png" alt="Banner Mascotas" class="w-full max-w-full h-auto object-cover rounded-none block" />
+      </section>
+      <!-- Filtros y selección -->
+      <section class="bg-blue-100 px-8 py-6 flex flex-col gap-4 items-start w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] box-border">
+        <div>
+          <span>Servicios para:</span>
+          <button class="bg-blue-900 text-white rounded px-4 py-2 font-bold mr-4">Perros 🐶</button>
+          <button class="bg-blue-500 text-white rounded px-4 py-2 font-bold">Gatos 🐱</button>
+        </div>
+        <div class="flex gap-4 mt-2 flex-wrap">
+          <button class="bg-white border border-blue-200 rounded px-4 py-2 text-blue-900 font-bold">Alimento</button>
+          <button class="bg-white border border-blue-200 rounded px-4 py-2 text-blue-900 font-bold">Concentrado</button>
+          <button class="bg-white border border-blue-200 rounded px-4 py-2 text-blue-900 font-bold">Seleccione una marca</button>
+          <button class="bg-white border border-blue-200 rounded px-4 py-2 text-blue-900 font-bold">Limpiar</button>
+          <button class="bg-white border border-blue-200 rounded px-4 py-2 text-blue-900 font-bold">Filtrar Por ▼</button>
+          <button class="bg-white border border-blue-200 rounded px-4 py-2 text-blue-900 font-bold">Ordenar Por ▼</button>
+        </div>
+      </section>
+    </div>
   <div class="main-bg">
     <!-- Cards de servicios/productos -->
-    <section class="main-cards">
+    <!-- <section class="main-cards">
       <div class="cards">
         <div v-for="servicio in services" :key="servicio.id" class="card">
           <div class="card-image">
@@ -21,10 +44,35 @@
           </div>
         </div>
       </div>
-    </section>
-
+    </section> -->
+<section class="p-8">
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    <div
+      v-for="servicio in services"
+      :key="servicio.id"
+      class="bg-white rounded-xl shadow flex flex-col items-center min-h-[370px] max-w-xs mx-auto p-6"
+    >
+      <div class="bg-blue-200 text-blue-900 flex items-center justify-center rounded-xl w-24 h-24 mb-4 text-4xl">
+        <span class="emoji">{{ servicio.image }}</span>
+      </div>
+      <span class="text-xs bg-blue-100 text-blue-900 px-2 py-1 rounded-full mb-2 font-semibold">{{ servicio.category.toUpperCase() }}</span>
+      <h4 class="text-blue-900 font-bold text-center mb-2 h-12 flex items-center justify-center text-lg w-full truncate">
+        {{ servicio.nombre }}
+      </h4>
+      <p class="text-gray-700 mb-2 text-center min-h-[48px] flex items-center justify-center">{{ servicio.descripcion }}</p>
+      <div class="mb-2 text-center">
+        <span class="font-bold text-blue-500 text-lg">$ {{ servicio.price.toLocaleString('es-CO') }}</span>
+      </div>
+      <div class="flex-1"></div>
+      <div class="flex gap-2 w-full mt-4">
+        <button @click="scheduleService(servicio.id)" class="bg-white border border-blue-200 text-blue-900 font-bold py-2 px-4 rounded w-1/2 hover:bg-blue-50 transition">📅 Agendar</button>
+        <button @click="agregarAlCarrito(servicio)" class="bg-blue-900 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-1/2 transition">Agregar</button>
+      </div>
+    </div>
+  </div>
+</section>
     <!-- Footer -->
-    <footer class="footer">
+    <!-- <footer class="footer">
       <div class="footer-content">
         <div>
           <h4>PetMarket</h4>
@@ -44,8 +92,29 @@
           <p>+57 300 123 4567</p>
         </div>
       </div>
-    </footer>
+    </footer> -->
+<footer class="bg-blue-600 text-blue-50 py-8 mt-8">
+  <div class="max-w-5xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-3 gap-8">
+    <div>
+      <h4 class="text-xl font-bold mb-2">PetMarket</h4>
+      <p class="text-blue-100">El mejor cuidado para tu mascota</p>
+    </div>
+    <div>
+      <h4 class="text-xl font-bold mb-2">Servicios</h4>
+      <ul class="space-y-1">
+        <li><a href="#" class="hover:underline text-blue-50">Baño</a></li>
+        <li><a href="#" class="hover:underline text-blue-50">Corte</a></li>
+        <li><a href="#" class="hover:underline text-blue-50">Veterinaria</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-xl font-bold mb-2">Contacto</h4>
+      <p class="text-blue-100">info@petmarket.com</p>
+      <p class="text-blue-100">+57 300 123 4567</p>
+    </div>
   </div>
+</footer>
+</div>
 </template>
 
 <script setup>
@@ -68,7 +137,7 @@ const scheduleService = (id) => {
 }
 </script>
 
-<style scoped>
+<!-- <style scoped>
 .main-bg {
   background: #e3f0ff; /* azul claro */
   min-height: 100vh;
@@ -176,4 +245,4 @@ button.primary {
 .footer a:hover {
   text-decoration: underline;
 }
-</style>
+</style> -->
