@@ -5,13 +5,15 @@ export const useCarritoStore = defineStore('carrito', () => {
   const items = ref([])
 
   const agregarItem = (item) => {
-    const existe = items.value.find(i => i.id === item.id && i.tipo === item.tipo)
-    if (!existe) {
-      items.value.push({ ...item, cantidad: 1 })
-    } else {
-      existe.cantidad += 1
-    }
+  const existe = items.value.find(i => i.id === item.id && i.tipo === item.tipo)
+  if (!existe) {
+    // Usa la cantidad enviada, o 1 si no viene definida
+    items.value.push({ ...item, cantidad: item.cantidad || 1 })
+  } else {
+    // Suma la cantidad enviada
+    existe.cantidad += item.cantidad || 1
   }
+}
 
   // Calcula el total de unidades
   const totalUnidades = computed(() =>

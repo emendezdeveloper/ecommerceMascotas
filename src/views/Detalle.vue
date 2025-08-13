@@ -129,4 +129,5 @@ const agregarAlCarrito = () => {
     carrito.agregarItem({ ...item.value, tipo, cantidad: cantidad.value })
   }
 }
+
 </script>
